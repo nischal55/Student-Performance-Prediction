@@ -74,4 +74,17 @@ function App() {
       ]
     },
     {
-      pa
+      path:"auth",
+      element:<UserLogin/>
+    }
+    
+  ]);
+
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+}
+
+export default App;

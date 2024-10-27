@@ -90,12 +90,12 @@ function AcademicsTable() {
                       >
                         Edit
                       </Link>
-                      <a
-                        href="#"
+                      <Link
+                        to={`/deleteAcademics/${data._id}`}
                         className="font-medium text-blue-600 hover:underline mx-4"
                       >
                         Delete
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                 </>

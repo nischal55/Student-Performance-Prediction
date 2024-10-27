@@ -7,7 +7,7 @@ const {getRecords,newRecord,getStudentsAndAcademmics,updateExam,deleteExam,getOn
     examRoutes.post('/exam',newRecord);
     examRoutes.get("/examAndStudents",getStudentsAndAcademmics)
     examRoutes.put("/exam/:id",updateExam)
-    examRoutes.delete("/exam",deleteExam)
+    examRoutes.delete("/exam/:id",deleteExam)
     examRoutes.get("/exam/:id",getOneExam)
     
 
