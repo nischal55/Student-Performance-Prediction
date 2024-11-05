@@ -1,19 +1,36 @@
 import {useState} from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+
+
+
+
 function UserRegForm() {
+  const navigate = useNavigate();
   const[username,setUsername] = useState('');
   const[contact,setContact] = useState('');
   const[email,setEmail] = useState('');
   const[password,setPassword] = useState('');
   const[confirmPassword, setConfirmPassword] = useState('');
 
+ 
+
 
   const handleSubmit=(e)=>{
     e.preventDefault();
     if(password==confirmPassword){
-      axios.post('/api/users',{username,password,email,contact}).then((res)=>{console.log(res.data)})
-    }
-  }
+      //axios.post('/api/users',{username,password,email,contact}).then((res)=>{console.log(res.data)})
+      const otp = Math.floor(100000 + Math.random() * 900000);
+      axios.post('/api/users/verify',{email,otp}).then((res)=>{
+        toast.success(res.data)
+        let user_otp = prompt("Enter the OTP:");
+        if(otp==user_otp){
+          axios.post('/api/users',{username,password,email,contact}).then((res)=>{console.log(res.data)})
+        }
+      })
+  }}
   
   return (
     <>

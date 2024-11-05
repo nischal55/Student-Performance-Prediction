@@ -13,6 +13,7 @@ import StudentUpdate from "./Admin/StudentUpdate";
 import StudentDelete from "./Admin/StudentDelete";
 import UpdateAcademics from "./Admin/UpdateAcademics";
 import DeleteAcademics from "./Admin/DeleteAcademics";
+import OtpVerify from "./Admin/OtpVerify";
 
 
 function App() {
@@ -68,6 +69,10 @@ function App() {
         {
           path:"deleteAcademics/:id",
           element:<DeleteAcademics/>
+        },
+        {
+          path:"otpVerify",
+          element:<OtpVerify/>
         }
        
 
