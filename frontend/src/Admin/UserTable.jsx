@@ -52,7 +52,7 @@ function UserTable() {
                     >
                       {data.username}
                     </th>
-                    <td className="px-6 py-4">{data.contact}</td>
+                    <td  className="px-6 py-4">{data.contact}</td>
                     <td className="px-6 py-4">{data.email}</td>
                     <td className="px-6 py-4">
                       <a

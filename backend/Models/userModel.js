@@ -5,17 +5,16 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: {type:String, required:true},
   password: {type:String,required:true},
-  email: {type:String, 
-    required:true,
+  email: {
+    type: String,
+    required: [true, 'Email is required'],
+    unique: true,
     validate: {
-      validator: async (value) => {
-        let matched = await mongoose.models.User.findOne({ email: value });
-        if (matched) {
-          return false;
-        }
+      validator: async function (email) {
+        const user = await User.findOne({ email });
       },
-      message: "email already used",
-    },
+      message: props => `Email ${props.value} is already in use!`
+    }
   },
   contact : {type:String, required:true}
 
