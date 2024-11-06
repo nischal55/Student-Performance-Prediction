@@ -7,7 +7,8 @@ const examSchema = new Schema({
   studentId: {type:ObjectId, ref:'students', required:true},
   examGpa: {type:Number,required:true},
   attendance: {type:Number, required:true},
-  assignment :{type:String,required:true}
+  assignment :{type:String,required:true},
+  createdBy: { type: ObjectId, required: true, ref: "users" }
 });
 
 const Exam = mongoose.model('exam',examSchema);

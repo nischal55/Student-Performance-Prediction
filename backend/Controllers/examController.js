@@ -23,7 +23,7 @@ const getRecords = async(req,res)=>{
 
 const getStudentsAndAcademmics = async(req,res) =>{
     try{
-        let exam = await Exam.find().populate('studentId')
+        let exam = await Exam.find({createdBy:req.params.id}).populate('studentId')
         res.send(exam)
     }catch(e){
         res.status(500).send(e)

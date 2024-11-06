@@ -13,11 +13,12 @@ function AcademicForm() {
   const [examGpa, setExamGpa] = useState('');
   const [assignment, setAssignment] = useState('');
   const [attendance, setAttendance] = useState('');
+  const createdBy = localStorage.getItem('userId')
 
   const handleSubmit = (e)=>{
     e.preventDefault();
     if(studentId != "0"){
-      axios.post('/api/exam',{studentId,examGpa,assignment,attendance}).then((res)=>{
+      axios.post('/api/exam',{studentId,examGpa,assignment,attendance,createdBy}).then((res)=>{
         navigate('/studentTable')
         toast.success(res.data.meassage)
       }).catch((err) => {

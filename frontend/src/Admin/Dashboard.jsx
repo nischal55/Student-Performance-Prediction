@@ -40,9 +40,10 @@ function Dashboard() {
     let [sixth,setSixth] = useState(0);
     let [seventh,setSeventh] = useState(0);
     let [eighth,setEighth] = useState(0);
+    const createdBy = localStorage.getItem('userId')
 
     useEffect(()=>{
-        axios.get('/api/students').then((res)=>{
+        axios.get('/api/students/'+createdBy).then((res)=>{
             setData(res.data)
         })
     },[])
@@ -54,7 +55,7 @@ function Dashboard() {
     }, []);
 
     useEffect(()=>{
-      axios.get('/api/examAndStudents').then((res) => {
+      axios.get('/api/examAndStudents/'+createdBy).then((res) => {
         setExamData(res.data);
       });
     }, []);

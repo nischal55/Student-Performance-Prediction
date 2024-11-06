@@ -6,9 +6,10 @@ import PredictComponent from "./PredictComponent";
 function Report() {
   const [datas, setDatas] = useState([]);
   const [semester, setSemester] = useState("First");
+  const createdBy = localStorage.getItem('userId')
 
   useEffect(() => {
-    axios.get("/api/examAndStudents").then((res) => {
+    axios.get("/api/examAndStudents/"+createdBy).then((res) => {
       setDatas(res.data);
     });
   }, []);

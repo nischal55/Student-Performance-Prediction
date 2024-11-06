@@ -14,6 +14,7 @@ import StudentDelete from "./Admin/StudentDelete";
 import UpdateAcademics from "./Admin/UpdateAcademics";
 import DeleteAcademics from "./Admin/DeleteAcademics";
 import OtpVerify from "./Admin/OtpVerify";
+import Feedback from "./Admin/Feedback";
 
 
 function App() {
@@ -73,6 +74,10 @@ function App() {
         {
           path:"otpVerify",
           element:<OtpVerify/>
+        },
+        {
+          path:"feedback",
+          element:<Feedback/>
         }
        
 

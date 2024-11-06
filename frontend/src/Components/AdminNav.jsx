@@ -11,6 +11,7 @@ import { logout } from "../Redux/slice/userSlice";
 function AdminNav() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user_role = localStorage.getItem("role");
   return (
     <>
       <div className="w-full h-[5rem] bg-indigo-950 text-slate-400 text-left text-lg sticky top-0">
@@ -26,31 +27,78 @@ function AdminNav() {
                 Dashboard
               </Link>
             </li>
-            <li className="pt-6">
-              <Link to={`/users`}>
-                <FaUsers className="inline-flex mx-4" />
-                Users
-              </Link>
-            </li>
-            <li className="pt-6">
-              <Link to={`/studentTable`}>
-                <PiStudentFill className="inline-flex mx-4" />
-                Students
-              </Link>
-            </li>
-
-            <li className="pt-6">
-              <Link to={`/academicTable`}>
-                <FaListCheck className="inline-flex mx-4" />
-                Academics
-              </Link>
-            </li>
-            <li className="pt-6">
-              <Link to={`/report`}>
-                <TbReportAnalytics className="inline-flex mx-4" />
-                Results
-              </Link>
-            </li>
+            {user_role == "Admin" ? (
+              <>
+                <li className="pt-6">
+                  <Link to={`/users`}>
+                    <FaUsers className="inline-flex mx-4" />
+                    Users
+                  </Link>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
+            {user_role != "Admin" ? (
+              <>
+                <li className="pt-6">
+                  <Link to={`/studentTable`}>
+                    <PiStudentFill className="inline-flex mx-4" />
+                    Students
+                  </Link>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
+            {user_role != "Admin" ? (
+              <>
+                <li className="pt-6">
+                  <Link to={`/academicTable`}>
+                    <FaListCheck className="inline-flex mx-4" />
+                    Academics
+                  </Link>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
+            {user_role != "Admin" ? (
+              <>
+                <li className="pt-6">
+                  <Link to={`/report`}>
+                    <TbReportAnalytics className="inline-flex mx-4" />
+                    Results
+                  </Link>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
+            {user_role != "Admin" ? (
+              <>
+                <li className="pt-6">
+                  <Link to={`/report`}>
+                    <TbReportAnalytics className="inline-flex mx-4" />
+                    Feedback
+                  </Link>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
+            {user_role == "Admin" ? (
+              <>
+                <li className="pt-6">
+                  <Link to={`/feedbacks`}>
+                    <TbReportAnalytics className="inline-flex mx-4" />
+                    Feedbacks
+                  </Link>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
             <li className="pt-6">
               <Link
                 onClick={() => {

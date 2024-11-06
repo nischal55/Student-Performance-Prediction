@@ -40,6 +40,8 @@ const loginUser = async (req, res, next) => {
       } else {
         res.status(402).send("Invalid Credentials");
       }
+    }else{
+      res.status(402).send("Invalid Credential");
     }
   } catch (e) {
     res.status(402).send("Invalid Credential");

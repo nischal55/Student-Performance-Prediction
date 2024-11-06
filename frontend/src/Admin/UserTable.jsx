@@ -37,6 +37,9 @@ function UserTable() {
                 {`EmailID`}
               </th>
               <th scope="col" className="px-6 py-3">
+                {`Role`}
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Action
               </th>
             </tr>
@@ -54,6 +57,7 @@ function UserTable() {
                     </th>
                     <td  className="px-6 py-4">{data.contact}</td>
                     <td className="px-6 py-4">{data.email}</td>
+                    <td className="px-6 py-4">{data.role}</td>
                     <td className="px-6 py-4">
                       <a
                         href="#"

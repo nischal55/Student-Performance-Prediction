@@ -9,7 +9,7 @@ const createStudents = async(req,res) =>{
 }
 const getStudents = async(req,res) =>{
     try{
-        let student = await Student.find();
+        let student = await Student.find({createdBy:req.params.id});
         res.send(student)
     }catch(e){
         res.status(500).send(e)

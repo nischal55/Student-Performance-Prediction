@@ -16,7 +16,8 @@ const userSchema = new Schema({
       message: props => `Email ${props.value} is already in use!`
     }
   },
-  contact : {type:String, required:true}
+  contact : {type:String, required:true},
+  role:{type:String, default:"Client"}
 
 });
 

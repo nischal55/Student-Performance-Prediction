@@ -20,6 +20,7 @@ function UserLogin() {
             localStorage.setItem("access_token",res.data.token)
             localStorage.setItem("username",res.data.user.username)
             localStorage.setItem("userId",res.data.user._id)
+            localStorage.setItem("role",res.data.user.role)
             toast.success(res.data)
             navigate('/')
             

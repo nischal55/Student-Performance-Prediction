@@ -15,10 +15,12 @@ app.use(express.json())
 const userRoutes = require('./Routers/userRoutes');
 const studentRoutes = require('./Routers/studentRoutes');
 const examRoutes = require('./Routers/examRoutes');
+const feedbackRoutes = require('./Routers/feedbackRoutes')
 
 app.use("/api/",userRoutes);
 app.use("/api/",studentRoutes);
 app.use("/api/",examRoutes);
+app.use("/api/",feedbackRoutes)
 
   
 app.listen(8000);

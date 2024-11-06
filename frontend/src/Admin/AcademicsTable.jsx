@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 function AcademicsTable() {
   const [datas, setdatas] = useState([]);
   const [semester, setSemester] = useState("First");
+  const createdBy = localStorage.getItem('userId')
 
   useEffect(() => {
-    axios.get("/api/examAndStudents").then((res) => {
+    axios.get("/api/examAndStudents/"+createdBy).then((res) => {
       setdatas(res.data);
     });
   }, []);
