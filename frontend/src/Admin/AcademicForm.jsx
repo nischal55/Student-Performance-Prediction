@@ -18,7 +18,7 @@ function AcademicForm() {
   const handleSubmit = (e)=>{
     e.preventDefault();
     if(studentId != "0"){
-      axios.post('/api/exam',{studentId,examGpa,assignment,attendance,createdBy}).then((res)=>{
+      axios.post('/api/exam/',{studentId,examGpa,assignment,attendance,createdBy}).then((res)=>{
         navigate('/studentTable')
         toast.success(res.data.meassage)
       }).catch((err) => {
@@ -28,7 +28,7 @@ function AcademicForm() {
   }
   
   useEffect(()=>{
-    axios.get('/api/students').then((res)=>{setStudents(res.data)})
+    axios.get('/api/students/'+createdBy).then((res)=>{setStudents(res.data)})
   },[])
   
   return (

@@ -15,79 +15,81 @@ import UpdateAcademics from "./Admin/UpdateAcademics";
 import DeleteAcademics from "./Admin/DeleteAcademics";
 import OtpVerify from "./Admin/OtpVerify";
 import Feedback from "./Admin/Feedback";
-
+import AdminDash from "./Admin/AdminDash";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <ProtectedRoutes/>,
-      children:[
+      element: <ProtectedRoutes />,
+      children: [
         {
-          path:"",
-          element:<Dashboard/>
+          path: "",
+          element: <Dashboard />,
         },
         {
-          path:"studentReg",
-          element:<StudentRegForm/>
+          path: "studentReg",
+          element: <StudentRegForm />,
         },
-        {
-          path:"userReg",
-          element:<UserRegForm/>
-        },
-        {
-          path:"studentTable",
-          element:<StudentTable/>
-        },
-        {
-          path:"academics",
-          element:<AcademicForm/>
-        },
-        {
-          path:"users",
-          element:<UserTable/>
-        },
-        {
-          path:"academicTable",
-          element:<AcademicsTable/>
-        },
-        {
-          path:"report",
-          element:<Report/>
-        },
-        {
-          path:"studentUpdate/:id",
-          element:<StudentUpdate/>
-        },
-        {
-          path:"studentDelete/:id",
-          element:<StudentDelete/>
-        },
-        {
-          path:"academicsUpdate/:id",
-          element:<UpdateAcademics/>
-        },
-        {
-          path:"deleteAcademics/:id",
-          element:<DeleteAcademics/>
-        },
-        {
-          path:"otpVerify",
-          element:<OtpVerify/>
-        },
-        {
-          path:"feedback",
-          element:<Feedback/>
-        }
-       
 
-      ]
+        {
+          path: "studentTable",
+          element: <StudentTable />,
+        },
+        {
+          path: "academics",
+          element: <AcademicForm />,
+        },
+        {
+          path: "users",
+          element: <UserTable />,
+        },
+        {
+          path: "academicTable",
+          element: <AcademicsTable />,
+        },
+        {
+          path: "report",
+          element: <Report />,
+        },
+        {
+          path: "studentUpdate/:id",
+          element: <StudentUpdate />,
+        },
+        {
+          path: "studentDelete/:id",
+          element: <StudentDelete />,
+        },
+        {
+          path: "academicsUpdate/:id",
+          element: <UpdateAcademics />,
+        },
+        {
+          path: "deleteAcademics/:id",
+          element: <DeleteAcademics />,
+        },
+        {
+          path: "otpVerify",
+          element: <OtpVerify />,
+        },
+        {
+          path: "feedback",
+          element: <Feedback />,
+        },
+        {
+          path: "adminDash",
+          element: <AdminDash />,
+        },
+      ],
     },
     {
-      path:"auth",
-      element:<UserLogin/>
-    }
-    
+      path: "auth",
+      element: <UserLogin />,
+    },
+    {
+      path: "userReg",
+      element: <UserRegForm />,
+    },
   ]);
 
   return (

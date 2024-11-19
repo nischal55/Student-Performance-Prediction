@@ -22,10 +22,20 @@ function AdminNav() {
 
           <div className="flex me-8">
             <li className="pt-6">
+              {user_role=="Admin"?
+              <>
+              <Link to={`/adminDash`}>
+                <FaHome className="inline-flex mx-4" />
+                Dashboard
+              </Link>
+              </>:
+              <>
               <Link to={`/`}>
                 <FaHome className="inline-flex mx-4" />
                 Dashboard
               </Link>
+              </>}
+              
             </li>
             {user_role == "Admin" ? (
               <>
@@ -78,7 +88,7 @@ function AdminNav() {
             {user_role != "Admin" ? (
               <>
                 <li className="pt-6">
-                  <Link to={`/report`}>
+                  <Link to={`/feedback`}>
                     <TbReportAnalytics className="inline-flex mx-4" />
                     Feedback
                   </Link>
@@ -87,18 +97,7 @@ function AdminNav() {
             ) : (
               ""
             )}
-            {user_role == "Admin" ? (
-              <>
-                <li className="pt-6">
-                  <Link to={`/feedbacks`}>
-                    <TbReportAnalytics className="inline-flex mx-4" />
-                    Feedbacks
-                  </Link>
-                </li>
-              </>
-            ) : (
-              ""
-            )}
+            
             <li className="pt-6">
               <Link
                 onClick={() => {

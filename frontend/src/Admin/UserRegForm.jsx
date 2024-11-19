@@ -2,9 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function UserRegForm() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [contact, setContact] = useState("");
   const [email, setEmail] = useState("");
@@ -24,6 +25,7 @@ function UserRegForm() {
             .post("/api/users", { username, password, email, contact })
             .then((res) => {
               console.log(res.data);
+              navigate('/auth')
             })
             .catch((err) => {
               toast.error(err.response.data);
@@ -32,6 +34,8 @@ function UserRegForm() {
           toast.error("Wrong OTP")
         }
       });
+    }else{
+      toast.error("Password Donot Match")
     }
   };
 

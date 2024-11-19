@@ -11,7 +11,7 @@ const addFeedBack = async(req,res)=>{
 
 const getAllFeedBack = async(req,res)=>{
     try{
-        let feedback = await Feedback.find()
+        let feedback = await Feedback.find().populate('createdBy')
         res.send(feedback)
     }catch(e){
         res.status(500).send(e)
